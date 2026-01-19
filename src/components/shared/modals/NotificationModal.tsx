@@ -22,7 +22,7 @@ export default function NotificationModal({
   // Заменяем текст "Telegram" на ссылку (учитываем разные варианты написания)
   const descriptionWithLink = description.replace(
     /(в |на |on |to )?Telegram/gi,
-    (match) => {
+    match => {
       // Сохраняем предлог, если он есть
       const prefix = match.match(/^(в |на |on |to )/i)?.[0] || "";
       const telegramText = match.replace(/^(в |на |on |to )/i, "");

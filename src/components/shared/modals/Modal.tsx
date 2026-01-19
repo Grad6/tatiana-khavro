@@ -82,7 +82,7 @@ export default function Modal({
             ? "w-[90vw] max-w-[90vw] h-[90vh] max-h-[90vh] flex items-center justify-center p-4"
             : "w-[82%] max-w-[470px] lg:max-w-[512px] max-h-dvh px-5 lg:px-[68px] pt-12 lg:pt-[65px] pb-5 lg:pb-15 overflow-y-auto rounded-[8px] scrollbar scrollbar-w-[3px] scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-transparent scrollbar-track-blue-light popup-scroll shadow-md"
         } ${className}`}
-        onClick={isImageVariant ? (e) => e.stopPropagation() : undefined}
+        onClick={isImageVariant ? e => e.stopPropagation() : undefined}
       >
         {!isImageVariant && (
           <Image

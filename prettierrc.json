@@ -8,13 +8,5 @@
   "bracketSpacing": true,
   "bracketSameLine": false,
   "arrowParens": "avoid",
-  "proseWrap": "always",
-  "overrides": [
-    {
-      "files": ["*.tsx", "*.ts"],
-      "options": {
-        "parser": "typescript"
-      }
-    }
-  ]
+  "proseWrap": "always"
 }

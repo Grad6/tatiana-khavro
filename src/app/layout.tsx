@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 const actay = localFont({
   src: [
     {
-      path: "../../../public/fonts/ActayWide-Bold.woff2",
+      path: "../../public/fonts/ActayWide-Bold.woff2",
       weight: "700",
       style: "normal",
     },
@@ -36,9 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body
-        className={`${montserrat.variable} ${actay.variable} antialiased`}
-      >
+      <body className={`${montserrat.variable} ${actay.variable} antialiased`}>
         {children}
       </body>
     </html>
