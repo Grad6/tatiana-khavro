@@ -11,7 +11,7 @@ export const CallBackValidation = () => {
       .matches(nameRegex, "Имя должно содержать только буквы")
       .required("Имя является обязательным"),
     telegram: yup.string().matches(telegramRegex, "Telegram должен быть в формате @username").required("Telegram является обязательным"),
-    instagram: yup.string().matches(instagramRegex, "Instagram должен быть в формате @username").required("Instagram является обязательным"),
+    instagram: yup.string().matches(instagramRegex, "Instagram должен быть в формате @username"),
     message: yup.string().required("Сообщение является обязательным"),
   });
 

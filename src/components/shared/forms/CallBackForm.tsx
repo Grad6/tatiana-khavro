@@ -100,7 +100,6 @@ export default function CallBackForm({
           <CustomizedInput
             fieldName="instagram"
             placeholder="Instagram"
-            isRequired
             errors={errors}
             touched={touched}
           />
