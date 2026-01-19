@@ -6,12 +6,12 @@ export default function Bonus() {
     <Container className="mb-[16px]">
       <div
         className="relative flex items-center gap-4 h-[57px] rounded-[8px]
-            bg-gradient-to-r from-[#501FFF] to-[#7835FE] px-[14px]"
+            bg-gradient-to-r from-purple-700 to-purple-800 px-[14px]"
       >
         <div
           className="absolute z-10 inset-0 rounded-[8px] pointer-events-none"
           style={{
-            background: "linear-gradient(90deg, #160641 0%, #6640FF 100%)",
+            background: "linear-gradient(90deg, var(--color-purple-darker) 0%, var(--color-purple-500) 100%)",
             padding: "1.5px",
             WebkitMask:
               "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -23,10 +23,10 @@ export default function Bonus() {
           <Image src="/images/giftbox.svg" alt="bonus" width={67} height={67} />
         </div>
         <h2
-          className="font-actay-wide font-bold text-[27px] leading-[34px] text-center uppercase"
+          className="font-actay font-bold text-[27px] leading-[34px] text-center uppercase"
           style={{
             background:
-              "linear-gradient(94.78deg, #FFFFFF 3.86%, #4000FF 149%)",
+              "linear-gradient(94.78deg, #FFFFFF 3.86%, var(--color-purple-accent) 149%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -34,7 +34,7 @@ export default function Bonus() {
         >
           Бонус
         </h2>
-        <p className="text-[10px] leading-[120%] text-[#DBC1FF]">
+        <p className="text-[10px] leading-[120%] text-purple-light">
           мини-видео «Сценарии прошлого: как они управляют настоящим»
         </p>
       </div>

@@ -1,14 +1,39 @@
 @import "tailwindcss";
 
-:root {
-}
-
 @theme inline {
-  --font-actay: "Actay Wide", sans-serif;
-  --font-montserrat: "Montserrat", sans-serif;
+  --font-actay: var(--font-actay), sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+
+  /* Background colors */
+  --color-bg-primary: #08001f;
+  --color-bg-glow: #1f006f;
+
+  /* Purple palette */
+  --color-purple-light: #dbc1ff;
+  --color-purple-400: #7640ff;
+  --color-purple-500: #6640ff;
+  --color-purple-600: #6048ff;
+  --color-purple-700: #501fff;
+  --color-purple-800: #7835fe;
+  --color-purple-dark: #1e0755;
+  --color-purple-darker: #160641;
+  --color-purple-accent: #4000ff;
 }
 
 body {
-  font-family: var(--font-montserrat);
-  background-color: #08001f;
+  font-family: var(--font-family-montserrat);
+  background-color: var(--color-bg-primary);
 }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotation {
+    animation: rotation 1600ms linear infinite;
+  }

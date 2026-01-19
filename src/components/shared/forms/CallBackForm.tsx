@@ -2,17 +2,17 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import axios from "axios";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useTranslations } from "next-intl";
 
-import { CallBackValidation } from "@/schemas/CallbackValidation";
-import { translateFormSource } from "@/utils/translateFormSource";
+import { CallBackValidation } from "../../../schemas/CallbackValidation";
 
 import CustomizedInput from "../formComponents/CustomizedInput";
 import SubmitButton from "../formComponents/SubmitButton";
 
 export interface ValuesCallBackFormType {
   name: string;
-  phone: string;
+  telegram: string;
+  instagram: string;
+  message: string;
 }
 
 interface CallBackFormProps {
@@ -20,10 +20,6 @@ interface CallBackFormProps {
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
   setIsPopUpShown?: Dispatch<SetStateAction<boolean>>;
   className?: string;
-  buttonVariant?: "pink" | "blue" | "gradient" | "white";
-  buttonText?: string;
-  inputVariant?: "black" | "gradient";
-  source?: string;
 }
 
 export default function CallBackForm({
@@ -31,17 +27,14 @@ export default function CallBackForm({
   setIsNotificationShown,
   setIsPopUpShown,
   className = "",
-  buttonVariant = "gradient",
-  buttonText,
-  inputVariant,
-  source,
 }: CallBackFormProps) {
-  const t = useTranslations("forms");
   const [isLoading, setIsLoading] = useState(false);
 
   const initialValues = {
     name: "",
-    phone: "",
+    telegram: "",
+    instagram: "",
+    message: "",
   };
 
   const validationSchema = CallBackValidation();
@@ -51,14 +44,12 @@ export default function CallBackForm({
     formikHelpers: FormikHelpers<ValuesCallBackFormType>
   ) => {
     const { resetForm } = formikHelpers;
-    let data =
-      `<b>Форма "Залиш свої контакти"</b>\n` +
-      `<b>Ім'я:</b> ${values.name.trim()}\n` +
-      `<b>Email:</b> ${values.phone.trim()}\n`;
-    if (source) {
-      const translatedSource = translateFormSource(source);
-      data += `<b>Джерело:</b> ${translatedSource}\n`;
-    }
+    const data =
+      `<b>Форма "Оставьте свои контакты"</b>\n` +
+      `<b>Имя:</b> ${values.name.trim()}\n` +
+      `<b>Telegram:</b> ${values.telegram.trim()}\n` +
+      `<b>Instagram:</b> ${values.instagram.trim()}\n` +
+      `<b>Сообщение:</b> ${values.message.trim()}\n`;
     try {
       setIsLoading(true);
       setIsError(false);
@@ -94,26 +85,38 @@ export default function CallBackForm({
         <Form className={`${className} flex flex-col gap-y-3.5`}>
           <CustomizedInput
             fieldName="name"
-            placeholder={t("namePlaceholder")}
+            placeholder="Имя"
             isRequired
             errors={errors}
             touched={touched}
-            variant={inputVariant}
           />
           <CustomizedInput
-            fieldName="phone"
-            placeholder={t("phonePlaceholder")}
+            fieldName="telegram"
+            placeholder="Telegram"
             isRequired
             errors={errors}
             touched={touched}
-            variant={inputVariant}
+          />
+          <CustomizedInput
+            fieldName="instagram"
+            placeholder="Instagram"
+            isRequired
+            errors={errors}
+            touched={touched}
+          />
+          <CustomizedInput
+            fieldName="message"
+            placeholder="Сообщение"
+            as="textarea"
+            isRequired
+            errors={errors}
+            touched={touched}
           />
           <SubmitButton
-            variant={buttonVariant}
             dirty={dirty}
             isValid={isValid}
             isLoading={isLoading}
-            text={buttonText || t("submitButton")}
+            text="Отправить"
             className="mt-2.5 lg:mt-4.5 h-[47px]"
           />
         </Form>

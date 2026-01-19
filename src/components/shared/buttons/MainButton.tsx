@@ -1,10 +1,12 @@
+import LoaderIcon from "../icons/LoaderIcon";
+
 interface MainButtonProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit";
   disabled?: boolean;
-  loading?: boolean;
+  isLoading?: boolean;
   variant?: "white" | "black";
 }
 
@@ -14,7 +16,7 @@ export default function MainButton({
   onClick,
   type = "button",
   disabled = false,
-  loading = false,
+  isLoading = false,
   variant = "black",
 }: MainButtonProps) {
   const variantClasses = {
@@ -24,14 +26,14 @@ export default function MainButton({
 
   return (
     <button
-      className={`${variantClasses[variant]} ${className}
-        flex items-center justify-center font-actay-wide font-bold text-[12px] leading-[15px] uppercase`}
+      className={`${variantClasses[variant]} ${className} ${disabled ? "opacity-50" : ""}
+        rounded-full flex items-center justify-center font-actay font-bold text-[12px] leading-[15px] uppercase cursor-pointer`}
       onClick={onClick}
       type={type}
-      disabled={disabled || loading}
+      disabled={disabled || isLoading}
     >
       <span>{children}</span>
-      {loading && <span>Loading...</span>}
+      {isLoading && <LoaderIcon />}
     </button>
   );
 }

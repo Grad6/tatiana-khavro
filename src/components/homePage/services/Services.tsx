@@ -23,7 +23,7 @@ const services = [
 export default function Services() {
   return (
     <Container className="mb-[10px]">
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[5px] text-[#DBC1FF]">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[5px] text-purple-light">
         {services.map((service, index) => (
           <li
             key={index}
@@ -33,7 +33,7 @@ export default function Services() {
             <div
               className="absolute z-10 inset-0 rounded-[8px] pointer-events-none"
               style={{
-                background: "linear-gradient(90deg, #1E0755 0%, #6048FF 100%)",
+                background: "linear-gradient(90deg, var(--color-purple-dark) 0%, var(--color-purple-600) 100%)",
                 padding: "1.5px",
                 WebkitMask:
                   "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -47,7 +47,7 @@ export default function Services() {
               width={28}
               height={28}
             />
-            <p className="text-[10px] leading-[120%] text-[#DBC1FF] max-w-[221px]">
+            <p className="text-[10px] leading-[120%] text-purple-light max-w-[221px]">
               {service.description}
             </p>
           </li>

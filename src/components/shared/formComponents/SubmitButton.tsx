@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import MainButton from "../buttons/MainButton";
 
 interface SubmitButtonProps {
@@ -7,7 +6,6 @@ interface SubmitButtonProps {
   isLoading: boolean;
   text: string;
   className?: string;
-  variant?: "pink" | "blue" | "gradient" | "white";
 }
 
 export default function SubmitButton({
@@ -16,19 +14,16 @@ export default function SubmitButton({
   isLoading,
   text,
   className = "",
-  variant = "gradient",
 }: SubmitButtonProps) {
-  const t = useTranslations("forms");
-
   return (
     <MainButton
       type="submit"
-      variant={variant}
+      variant="black"
       disabled={!(dirty && isValid) || isLoading}
       isLoading={isLoading}
       className={className}
     >
-      {isLoading ? t("sending") : text}
+      {isLoading ? "Отправка..." : text}
     </MainButton>
   );
 }
