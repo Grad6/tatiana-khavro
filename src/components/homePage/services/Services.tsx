@@ -12,11 +12,11 @@ const services = [
   },
   {
     description:
-      "Найдём, где решения принимаются не из реальности, а из старых программ и страхов",
+      "Найдём, где решения принимаются не\nиз реальности, а из старых программ и страхов",
   },
   {
     description:
-      "Поймём, что именно сейчас мешает выйти на новый уровень — в доходе и жизни",
+      "Поймём, что именно сейчас мешает выйти на новый уровень — в доходе\nи жизни",
   },
 ];
 
@@ -41,13 +41,14 @@ export default function Services() {
                 maskComposite: "exclude",
               }}
             />
-            <Image
-              src="/images/star.svg"
-              alt="service"
-              width={28}
-              height={28}
-            />
-            <p className="text-[10px] leading-[120%] text-purple-light max-w-[221px]">
+            <div className="relative size-[28px] flex items-center justify-center">
+              <Image
+                src="/images/star.svg"
+                alt="service"
+                fill
+              />
+            </div>
+            <p className="text-[10px] leading-[120%] text-purple-light max-w-[221px] whitespace-pre-line">
               {service.description}
             </p>
           </li>

@@ -31,8 +31,9 @@ export default function Hero() {
         <div className="absolute left-1/2 -translate-x-1/2 top-[192px] w-[771px] h-[565px] blur-[70.85px] bg-bg-primary pointer-events-none" />
       </div>
       <Container className="pt-[222px] z-10">
-        <h1 className="mb-[10px] font-actay font-bold text-[27px] leading-[126%] text-center uppercase text-white">
+        <h1 className="relative mb-[10px] font-actay font-bold text-[27px] leading-[126%] text-center uppercase text-white">
           Диагностическая консультация
+          <span className="absolute top-[-43px] left-[-13px] bg-white rounded-full flex items-center justify-center rotate-[-6.31deg] w-[156px] h-[43px] font-actay font-bold text-[16px] leading-none text-center uppercase text-purple-500">Бесплатная</span>
         </h1>
         <p className="text-[12px] leading-[125%] text-center text-white max-w-[228px] mx-auto">
           по психологии денег и жизненных сценариев

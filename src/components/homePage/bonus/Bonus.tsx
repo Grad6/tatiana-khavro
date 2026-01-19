@@ -23,7 +23,7 @@ export default function Bonus() {
           <Image src="/images/giftbox.svg" alt="bonus" width={67} height={67} />
         </div>
         <h2
-          className="font-actay font-bold text-[27px] leading-[34px] text-center uppercase"
+          className="font-actay font-bold text-[27px] leading-none text-center uppercase p-0"
           style={{
             background:
               "linear-gradient(94.78deg, #FFFFFF 3.86%, var(--color-purple-accent) 149%)",

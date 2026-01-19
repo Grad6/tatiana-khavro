@@ -19,7 +19,7 @@ export default function HeroDecorations() {
           height={111}
         />
       </div>
-      <div className="absolute top-2 -z-30 left-[50%+27px] w-[192px] h-auto">
+      <div className="absolute top-2 -z-10 left-[50%+27px] w-[192px] h-auto">
         <Image
           src="/images/drops-purple.svg"
           alt="decoration"
