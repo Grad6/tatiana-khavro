@@ -32,7 +32,7 @@ export default function MainButton({
       type={type}
       disabled={disabled || isLoading}
     >
-      <span>{children}</span>
+      <span className="pt-[4px]">{children}</span>
       {isLoading && <LoaderIcon />}
     </button>
   );

@@ -1,5 +1,6 @@
 import Container from "../../shared/container/Container";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 const services = [
   {
@@ -23,12 +24,39 @@ const services = [
 export default function Services() {
   return (
     <Container className="mb-[10px]">
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[5px] text-purple-light">
+      <motion.ul
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.15,
+              delayChildren: 0.1,
+            },
+          },
+        }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[5px] text-purple-light"
+      >
         {services.map((service, index) => (
-          <li
+          <motion.li
             key={index}
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.95 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.6,
+                  ease: [0.25, 0.1, 0.25, 1],
+                },
+              },
+            }}
             className="relative rounded-[8px] w-full h-[56px] px-[14px] flex items-center gap-[14px]
-                    bg-gradient-to-r from-[rgba(12, 1, 31, 0.13)] to-[rgba(106, 47, 255, 0.13)]"
+                    bg-linear-to-r from-[rgba(12, 1, 31, 0.13)] to-[rgba(106, 47, 255, 0.13)]"
           >
             <div
               className="absolute z-10 inset-0 rounded-[8px] pointer-events-none"
@@ -51,9 +79,9 @@ export default function Services() {
             <p className="text-[10px] leading-[120%] text-purple-light max-w-[221px] whitespace-pre-line">
               {service.description}
             </p>
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </Container>
   );
 }

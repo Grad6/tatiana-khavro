@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import * as motion from "motion/react-client";
 import MainButton from "../../shared/buttons/MainButton";
 import Container from "../../shared/container/Container";
 import CallbackFormModal from "../../shared/modals/CallbackFormModal";
@@ -11,9 +12,20 @@ export default function SignUp() {
   const [isNotificationShown, setIsNotificationShown] = useState(false);
   return (
     <>
-      <Container className="relative pb-[19px] overflow-hidden">
-        <div className="absolute -z-10 left-1/2 -translate-x-1/2 bottom-[-505px] w-[771px] h-[565px] blur-[70.85px] bg-bg-glow" />
-        <MainButton variant="white" className="w-full h-[52px] rounded-full" onClick={() => setIsPopUpShown(true)}>Записаться на консультацию</MainButton>
+      <Container className="relative pb-[19px]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true }}
+          className="absolute -z-10 left-1/2 -translate-x-1/2 bottom-[-505px] w-[771px] h-[565px] blur-[70.85px] bg-bg-glow"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true }}
+        >
+          <MainButton variant="white" className="w-full h-[52px] rounded-full" onClick={() => setIsPopUpShown(true)}>Записаться на консультацию</MainButton>
+        </motion.div>
       </Container >
       <CallbackFormModal
         isPopUpShown={isPopUpShown}
@@ -24,6 +36,7 @@ export default function SignUp() {
       <NotificationModal
         isPopUpShown={isNotificationShown}
         setIsPopUpShown={setIsNotificationShown}
+        isError={isError}
       />
     </>
   );

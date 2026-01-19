@@ -18,6 +18,8 @@
   --color-purple-dark: #1e0755;
   --color-purple-darker: #160641;
   --color-purple-accent: #4000ff;
+
+  --breakpoint-ssm: 488px;
 }
 
 body {
