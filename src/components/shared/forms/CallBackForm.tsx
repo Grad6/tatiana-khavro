@@ -4,6 +4,7 @@ import axios from "axios";
 import { Dispatch, SetStateAction, useState } from "react";
 
 import { CallBackValidation } from "../../../schemas/CallbackValidation";
+import { trackFacebookPixel } from "../../../utils/facebookPixel";
 
 import CustomizedInput from "../formComponents/CustomizedInput";
 import SubmitButton from "../formComponents/SubmitButton";
@@ -61,6 +62,8 @@ export default function CallBackForm({
           "Content-Type": "application/json",
         },
       });
+      // Track successful form submission with Facebook Pixel
+      trackFacebookPixel("Lead");
       if (setIsPopUpShown) {
         setIsPopUpShown(false);
       }
