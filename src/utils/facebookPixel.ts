@@ -1,7 +1,5 @@
 // Facebook Pixel utility functions
 
-// Toggle this flag to disable Facebook Pixel during testing.
-const IS_TEST_MODE = true;
 declare global {
   interface Window {
     fbq: (
@@ -21,10 +19,6 @@ export const trackFacebookPixel = (
   eventName: string,
   params?: Record<string, unknown>
 ): void => {
-  if (IS_TEST_MODE) {
-    return;
-  }
-
   if (typeof window !== "undefined" && window.fbq) {
     if (params) {
       window.fbq("track", eventName, params);

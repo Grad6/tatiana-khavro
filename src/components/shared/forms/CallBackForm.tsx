@@ -10,9 +10,6 @@ import CustomizedInput from "../formComponents/CustomizedInput";
 import SubmitButton from "../formComponents/SubmitButton";
 import MainButton from "../buttons/MainButton";
 
-// Toggle this flag to disable Telegram sending during testing.
-const IS_TEST_MODE = true;
-
 export interface ValuesCallBackFormType {
   message: string;
   telegram: string;
@@ -68,18 +65,16 @@ export default function CallBackForm({
       setIsLoading(true);
       setIsError(false);
 
-      if (!IS_TEST_MODE) {
-        await axios({
-          method: "post",
-          url: "/api/telegram",
-          data,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        // Track successful form submission with Facebook Pixel
-        trackFacebookPixel("Lead");
-      }
+      await axios({
+        method: "post",
+        url: "/api/telegram",
+        data,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      // Track successful form submission with Facebook Pixel
+      trackFacebookPixel("Lead");
 
       if (setIsPopUpShown) {
         setIsPopUpShown(false);
