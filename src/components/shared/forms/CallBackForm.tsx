@@ -162,7 +162,7 @@ export default function CallBackForm({
         },
       });
       // Track successful form submission with Facebook Pixel
-      trackFacebookPixel("Purchase");
+      trackFacebookPixel("Lead");
 
       if (setIsPopUpShown) {
         setIsPopUpShown(false);
